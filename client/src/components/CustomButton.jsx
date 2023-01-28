@@ -1,4 +1,5 @@
 import React from 'react'
+// for Navbar
 
 const CustomButton = ({ btnType, title, handleClick, styles }) => {
   return (

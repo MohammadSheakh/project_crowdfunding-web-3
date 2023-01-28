@@ -3,13 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useStateContext } from '../context';
 import { CustomButton } from './';
-import { logo, menu, search, thirdweb } from '../assets';
+import { logo, menu, search, thirdweb } from '../assets'; // icons
 import { navlinks } from '../constants';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('dashboard');
-  const [toggleDrawer, setToggleDrawer] = useState(false);
+  const [toggleDrawer, setToggleDrawer] = useState(false); //
   const { connect, address } = useStateContext();
 
   return (
@@ -25,7 +25,8 @@ const Navbar = () => {
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton 
           btnType="button"
-          title={address ? 'Create a campaign' : 'Connect'}
+          title={address ? 'Create a campaign' : 'Connect'} // active address thakle campaign create 
+          // korte bolbe karon amader connected wallet ase .. naile Connect korte bolbe 
           styles={address ? 'bg-[#1dc071]' : 'bg-[#8c6dfd]'}
           handleClick={() => {
             if(address) navigate('create-campaign')

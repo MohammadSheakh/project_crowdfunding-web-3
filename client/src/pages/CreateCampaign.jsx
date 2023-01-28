@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { ethers } from 'ethers';
+import { ethers } from 'ethers'; // allow us to interact with our smart contract 
 
 import { useStateContext } from '../context';
 import { money } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
+/**
+ * we will actually have to connect with block chain .. connect with your smart contract
+ * and then create the actual campaign on the block chain to be able to fetch them .. 
+ * 
+ */
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
