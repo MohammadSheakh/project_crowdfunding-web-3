@@ -1,13 +1,23 @@
 import React, { useContext, createContext } from 'react';
-
+/**
+ * this is a place where we are going to store all of our web 3 logic .. and then
+ * we are gonna wrap our application.. with this context so that every single 
+ * page and component can use it without any problems. this is a centralized source
+ * of truth. 
+ */
 import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
+// all utility function .. coming from third web 
 import { ethers } from 'ethers';
 import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 
 const StateContext = createContext();
 
+// export context provider .. 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0xf59A1f8251864e1c5a6bD64020e3569be27e6AA9');
+  // allow us to wrap our entire application with the context provider .. but then
+  // stil render all of the children that are inside of it . finally now is the time 
+  // to connect with our smart contract . 
+  const { contract } = useContract('0xf447fE08e6a569c22Ef9971e87D1B3854760A982');// ei function er moddhe amader ke contract address provide korte hobe 
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
